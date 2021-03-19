@@ -1,0 +1,101 @@
+﻿@model IEnumerable<VegamTask.ViewModels.FakeModel>
+
+@{
+    ViewData["Title"] = "GetStudentsWithMarks";
+}
+
+<h1>GetStudentsWithMarks</h1>
+
+<p>
+    @Html.ActionLink("Sort", "GetStudentsWithMarks", "Home", new { sortTable = true }, null)
+</p>
+
+<p>
+    @Html.ActionLink("Status", "GetStudentsWithMarks", "Home", new { showStatus = true }, null)
+</p>
+
+<p>
+    @Html.ActionLink("AddGraceMarks", "GetStudentsWithMarks", "Home", new { showStatus = true, addGrace = true }, null)
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.studentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EC1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EC2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EC3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EC4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EC5)
+            </th>
+            @if (ViewBag.showStatus == true)
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.TotalFailedSubjects)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.studentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EC1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EC2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EC3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EC4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EC5)
+            </td>
+            @if (ViewBag.showStatus == true)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.TotalFailedSubjects)
+            </td>*@
+
+
+            @*<td>
+            <a asp-action="Edit" asp-route-id="@item.FstudentId">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.FstudentId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.FstudentId">Delete</a>
+        </td>*@
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<VegamTask.Models.Student>
+
+@{
+    ViewData["Title"] = "GetStudents";
+}
+
+<h1>GetStudents</h1>
+
+<p>
+    <a asp-action="GetStudentsWithMarks">Problems</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FstudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fsubject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fmarks)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FstudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fsubject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fmarks)
+            </td>
+            <!--<td>-->
+                @*<a asp-action="Edit" asp-route-id="@item.FstudentId">Edit</a> |*@
+                <!--<a asp-action="Details" asp-route-id="@item.FstudentId">Details</a>-->
+                @*<a asp-action="Delete" asp-route-id="@item.FstudentId">Delete</a>*@
+            <!--</td>-->
+        </tr>
+}
+    </tbody>
+</table>
